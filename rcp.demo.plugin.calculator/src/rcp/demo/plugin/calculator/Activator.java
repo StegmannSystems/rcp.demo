@@ -37,18 +37,29 @@ import rcp.demo.plugin.calculator.impl.CalculatorServiceImpl;
 /**
  * Activator for calculator bundle.
  */
-public class Activator implements BundleActivator {
-    private static BundleContext context = null;
+public class Activator implements BundleActivator
+{
+    /** Remember the bundler context. */
+    private static BundleContext context;
+    /** Remember the service. */
     @SuppressWarnings("unused")
     private ServiceRegistration<ICalculatorService> m_calculatorServiceRegistration;
 
-    static synchronized BundleContext getContext() {
+    /**
+     * Provide current bundle context.
+     *
+     * @return current Bundle context.
+     */
+    static synchronized BundleContext getContext()
+    {
         return context;
     }
 
     @Override
-    public void start(BundleContext bundleContext) throws Exception {
-        if (Activator.context == null) {
+    public void start(BundleContext bundleContext) throws Exception
+    {
+        if (Activator.context == null)
+        {
             setContext(bundleContext);
             this.m_calculatorServiceRegistration = Activator.context.registerService(
                     ICalculatorService.class, new CalculatorServiceImpl(),
@@ -57,15 +68,17 @@ public class Activator implements BundleActivator {
     }
 
     @Override
-    public void stop(BundleContext bundleContext) throws Exception {
-        if (Activator.context != null) {
+    public void stop(BundleContext bundleContext) throws Exception
+    {
+        if (Activator.context != null)
+        {
             setContext(null);
             this.m_calculatorServiceRegistration.unregister();
         }
     }
 
     /**
-     * Adjusts the bundle context
+     * Adjusts the bundle context.
      *
      * @param bundleContext - Der Bundle-Context
      */

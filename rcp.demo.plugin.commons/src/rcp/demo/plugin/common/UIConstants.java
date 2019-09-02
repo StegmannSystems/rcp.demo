@@ -31,5 +31,14 @@ package rcp.demo.plugin.common;
  */
 public enum UIConstants
 {
-    CALCULATOR_INPUT, CALCULATOR_RESULT, CALCULATOR_RUN, CALCULATOR, TEST_COMP_NAME
+    /** Input field for the number to use for calculation. */
+    CALCULATOR_INPUT,
+    /** Output field for presenting the result of the calculation. */
+    CALCULATOR_RESULT,
+    /** Button for starting the calculation. */
+    CALCULATOR_RUN,
+    /** Id for the calculator tab. */
+    CALCULATOR,
+    /** Special constant for jubula testing. */
+    TEST_COMP_NAME
 }

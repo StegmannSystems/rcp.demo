@@ -29,7 +29,8 @@ package rcp.demo.plugin.calculator;
 /**
  * Implementing calculator functions.
  */
-public interface ICalculatorService {
+public interface ICalculatorService
+{
     /**
      * Calculate square root.
      * 

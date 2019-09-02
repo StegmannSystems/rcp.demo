@@ -39,6 +39,7 @@
 		<archive.products.phase>package</archive.products.phase>
 
 		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
+		<maven.checkstyle.plugin>3.0.0</maven.checkstyle.plugin>
 	</properties>
 
 	<profiles>
@@ -160,6 +161,23 @@
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>${sonar.maven.plugin.version}</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${maven.checkstyle.plugin}</version>
+				<configuration>
+					<configLocation>${basedir}/../checkstyle.xml</configLocation>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

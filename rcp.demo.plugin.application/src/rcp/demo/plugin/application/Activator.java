@@ -34,9 +34,14 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator implements BundleActivator
 {
-
+    /** Current bundle context. */
     private static BundleContext context;
 
+    /**
+     * Provide current bundle context.
+     *
+     * @return current bundle context.
+     */
     static synchronized BundleContext getContext()
     {
         return context;
@@ -45,7 +50,8 @@ public class Activator implements BundleActivator
     @Override
     public void start(BundleContext bundleContext) throws Exception
     {
-        if (Activator.context == null) {
+        if (Activator.context == null)
+        {
             setContext(bundleContext);
         }
     }
@@ -53,13 +59,14 @@ public class Activator implements BundleActivator
     @Override
     public void stop(BundleContext bundleContext) throws Exception
     {
-        if (Activator.context != null) {
+        if (Activator.context != null)
+        {
             setContext(null);
         }
     }
 
     /**
-     * Adjusts the bundle context
+     * Adjusts the bundle context.
      *
      * @param bundleContext - Der Bundle-Context
      */

@@ -43,8 +43,13 @@ import org.eclipse.swt.widgets.TreeItem;
 
 /**
  * Demo on what you basically can do with a pure tree widget.
+ * (for the purpose of a demo a few style issues can be ignored)
  */
-public class SecondPart {
+@SuppressWarnings({
+    "checkstyle:classdataabstractioncoupling",
+    "checkstyle:magicnumber", "checkstyle:multiplestringliterals"})
+public class SecondPart
+{
 
     /**
      * Create the controls for given parent.
@@ -53,7 +58,8 @@ public class SecondPart {
      * @param part   not used here.
      */
     @PostConstruct
-    public void postConstruct(final Composite parent, final MPart part) {
+    public void postConstruct(final Composite parent, final MPart part)
+    {
         parent.setLayout(new GridLayout());
 
         final Device device = Display.getCurrent();
@@ -83,22 +89,26 @@ public class SecondPart {
         column.setMoveable(false);
         column.setToolTipText("State");
 
-        for (int a = 1; a <= 10; ++a) {
+        for (int a = 1; a <= 10; ++a)
+        {
             final TreeItem item = new TreeItem(tree, SWT.NONE, 0);
             item.setText(new String[] {"Item with a very very long text", "" + a});
             item.setFont(new Font(device, "Time New Roman", 14, SWT.BOLD));
 
-            for (int b = 1; b <= 10; ++b) {
+            for (int b = 1; b <= 10; ++b)
+            {
                 final TreeItem subItem = new TreeItem(item, SWT.NONE);
                 subItem.setText(new String[] {"Sub Item", "" + a + "." + b});
-                if (b % 2 == 0) {
+                if (b % 2 == 0)
+                {
                     subItem.setBackground(new Color(device, 220, 220, 220));
                 }
             }
         }
 
         // resize columns
-        for (int cix = 0; cix < tree.getColumnCount(); ++cix) {
+        for (int cix = 0; cix < tree.getColumnCount(); ++cix)
+        {
             tree.getColumn(cix).pack();
         }
     }

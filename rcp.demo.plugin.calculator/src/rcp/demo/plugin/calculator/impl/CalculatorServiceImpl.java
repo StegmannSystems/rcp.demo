@@ -31,15 +31,18 @@ import rcp.demo.plugin.calculator.ICalculatorService;
 /**
  * Implementation of the calculator service.
  */
-public class CalculatorServiceImpl implements ICalculatorService {
+public class CalculatorServiceImpl implements ICalculatorService
+{
 
     @Override
-    public double sqrt(double value) {
+    public double sqrt(double value)
+    {
         return Math.sqrt(value);
     }
 
     @Override
-    public double square(double value) {
+    public double square(double value)
+    {
         return value * value;
     }
 

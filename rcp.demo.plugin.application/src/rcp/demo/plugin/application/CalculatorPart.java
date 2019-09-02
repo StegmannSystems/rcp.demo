@@ -46,8 +46,13 @@ import rcp.demo.plugin.common.UIConstants;
 /**
  * Small Dialog for using the calculator.
  */
+@SuppressWarnings({
+    "checkstyle:classfanoutcomplexity",
+    "checkstyle:classdataabstractioncoupling"})
 public class CalculatorPart
 {
+    /** Used Font height. */
+    private static final int FONT_HEIGHT = 24;
 
     /**
      * Creating the calculator widgets.
@@ -75,7 +80,7 @@ public class CalculatorPart
 
         final var font = txtResult.getFont();
         final var fontData = font.getFontData();
-        fontData[0].setHeight(24);
+        fontData[0].setHeight(FONT_HEIGHT);
         txtResult.setFont(new Font(parent.getDisplay(), fontData));
 
         btnCalculator.addSelectionListener(new SelectionListener()
@@ -84,8 +89,10 @@ public class CalculatorPart
             @Override
             public void widgetSelected(SelectionEvent e)
             {
-                ServiceReference<ICalculatorService> reference = Activator.getContext().getServiceReference(ICalculatorService.class);
-                ICalculatorService calculatorService = Activator.getContext().getService(reference);
+                final ServiceReference<ICalculatorService> reference
+                    = Activator.getContext().getServiceReference(ICalculatorService.class);
+                final ICalculatorService calculatorService
+                    = Activator.getContext().getService(reference);
 
                 final var value = Double.valueOf(txtInput.getText());
                 final var squareResult = calculatorService.square(value);

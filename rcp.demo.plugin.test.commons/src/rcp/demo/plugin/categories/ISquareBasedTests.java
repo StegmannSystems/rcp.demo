@@ -29,6 +29,7 @@ package rcp.demo.plugin.categories;
 /**
  * Represents all (math) root based tests. 
  */
-public interface ISquareBasedTests {
+public interface ISquareBasedTests
+{
     // No implementation required; used for @Category
 }

@@ -37,7 +37,8 @@ import org.eclipse.swt.widgets.Composite;
 /**
  * Using a browser.
  */
-public class FirstPart {
+public class FirstPart
+{
 
     /**
      * Create the controls for given parent.
@@ -45,7 +46,8 @@ public class FirstPart {
      * @param parent where to place (layout) the controls.
      */
     @PostConstruct
-    public void createControls(final Composite parent) {
+    public void createControls(final Composite parent)
+    {
         parent.setLayout(new GridLayout(2, false));
 
         final Browser browser = new Browser(parent, SWT.NONE);

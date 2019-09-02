@@ -29,6 +29,7 @@ package rcp.demo.plugin.categories;
 /**
  * Represents all (math) root based tests. 
  */
-public interface IJubulaTests {
+public interface IJubulaTests
+{
     // No implementation required; used for @Category
 }
