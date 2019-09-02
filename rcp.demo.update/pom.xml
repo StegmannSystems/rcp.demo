@@ -1,0 +1,15 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.stegmannsystems.rcp</groupId>
+		<artifactId>rcp.demo.build</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../rcp.demo.build</relativePath>
+	</parent>
+
+    <artifactId>rcp.demo.update</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>eclipse-repository</packaging>
+</project>
+

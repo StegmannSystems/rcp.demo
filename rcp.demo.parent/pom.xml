@@ -1,0 +1,166 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.stegmannsystems.rcp</groupId>
+	<artifactId>rcp.demo.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<build.root></build.root>
+		<product.id>rcp.demo.plugin.application.id</product.id>
+
+		<!-- JaCoCo -->
+		<jacoco.maven.plugin.version>0.8.3</jacoco.maven.plugin.version>
+		<jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
+		<jacoco.out.file>jacoco.exec</jacoco.out.file>
+
+		<!-- Sonar properties -->
+		<sonar.projectName>${project.name} :: parallel</sonar.projectName>
+		<sonar.projectKey>${project.groupId}:${project.artifactId}:${project.version}:parallel</sonar.projectKey>
+
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.language>java</sonar.language>
+		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+		<sonar.verbose>false</sonar.verbose>
+		<sonar.java.source>11</sonar.java.source>
+		<sonar.scm.provider>git</sonar.scm.provider>
+		<sonar.scm.url>scm:git:https://github.com/StegmannSystems/rcp.demo.git</sonar.scm.url>
+		<sonar.jacoco.reportPaths></sonar.jacoco.reportPaths>
+
+		<!-- Tycho -->
+		<tycho.compiler.plugin.phase>compile</tycho.compiler.plugin.phase>
+		<tycho.version>1.4.0</tycho.version>
+		<tycho.surefire.groups></tycho.surefire.groups>
+		<!-- Tycho - control over phases -->
+		<materialize.products.phase>package</materialize.products.phase>
+		<archive.products.phase>package</archive.products.phase>
+
+		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>Default</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+
+			<properties>
+				<maven.test.skip>true</maven.test.skip>
+			</properties>
+
+			<build>
+				<defaultGoal>clean install</defaultGoal>
+			</build>
+		</profile>
+
+		<profile>
+			<id>Test</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<materialize.products.phase></materialize.products.phase>
+				<archive.products.phase></archive.products.phase>
+			</properties>
+			<build>
+				<defaultGoal>integration-test</defaultGoal>
+			</build>
+		</profile>
+
+	</profiles>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<compilerArgs>
+						<arg>-err:-forbidden</arg>
+						<arg>-warn:-forbidden</arg>
+					</compilerArgs>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>com.stegmannsystems.rcp</groupId>
+							<artifactId>rcp.demo.target</artifactId>
+							<version>1.0.0-SNAPSHOT</version>
+						</artifact>
+					</target>
+
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<useUIHarness>false</useUIHarness>
+					<failIfNoTests>false</failIfNoTests>
+					<groups>${tycho.surefire.groups}</groups>
+					<includes>
+						<include>**/*Test.class</include>
+					</includes>
+					<!-- Sets the VM argument line used when tests are run. -->
+					<argLine>${jacoco.agent.arg}</argLine>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.maven.plugin.version}</version>
+
+				<configuration>
+					<destFile>${sonar.jacoco.reportPath}</destFile>
+					<propertyName>jacoco.agent.arg</propertyName>
+					<append>true</append>
+				</configuration>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>${sonar.maven.plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>

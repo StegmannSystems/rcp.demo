@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Commons
+Bundle-SymbolicName: rcp.demo.plugin.commons
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: rcp.demo.plugin.commons
+Bundle-RequiredExecutionEnvironment: JavaSE-9,
+ JavaSE-10
+Export-Package: rcp.demo.plugin.common

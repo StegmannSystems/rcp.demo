@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Calculator
+Bundle-SymbolicName: rcp.demo.plugin.calculator
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: rcp.demo.plugin.calculator.Activator
+Require-Bundle: org.eclipse.core.runtime
+Automatic-Module-Name: rcp.demo.plugin.calculator
+Bundle-RequiredExecutionEnvironment: JavaSE-9,
+ JavaSE-10
+Export-Package: rcp.demo.plugin.calculator
+Bundle-ActivationPolicy: lazy
