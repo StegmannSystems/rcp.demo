@@ -1,0 +1,9 @@
+language: java
+
+dist: xenial
+
+jdk:
+    - openjdk11
+
+script:
+    - ./mvnw -B -f rcp.demo.build -PDefault
