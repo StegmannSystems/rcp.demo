@@ -7,8 +7,16 @@ A RCP Demo Project as example as well as for communication of issues like Java V
 
 ## Quickstart
 
-Running on Linux environment:
+Running on Windows and Linux environment (at least):
 
 ```
 ./mvnw -B -f rcp.demo.build -PDefault
 ```
+
+The rcp.demo.product/target folder will contain then all three distributions:
+
+ - Windows 64bit
+ - Linux (Gtk) 64Bit
+ - Mac OSX 64Bit
+
+**Please note**: Requires at least Java 11.
