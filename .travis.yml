@@ -5,5 +5,8 @@ dist: xenial
 jdk:
     - openjdk11
 
+before_install:
+    - chmod +x mvnw
+
 script:
     - ./mvnw -B -f rcp.demo.build -PDefault
