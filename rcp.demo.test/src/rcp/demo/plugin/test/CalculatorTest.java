@@ -43,38 +43,45 @@ import rcp.demo.plugin.categories.ISquareRootBasedTests;
  * Testing of the Calculator service.
  */
 @SuppressWarnings("checkstyle:magicnumber")
-public class CalculatorTest {
+public class CalculatorTest
+{
+
     /** Service reference as interface to get the concrete shared service. */
-	private ServiceReference<ICalculatorService> m_reference;
-	/** Service instance. */
-	private ICalculatorService m_calculatorService;
+    private ServiceReference<ICalculatorService> m_reference;
 
-	@Before
-	public void setUp() {
-		this.m_reference = Activator.getContext().getServiceReference(ICalculatorService.class);
-		this.m_calculatorService = Activator.getContext().getService(this.m_reference);
-	}
+    /** Service instance. */
+    private ICalculatorService m_calculatorService;
 
-	@After
-	public void tearDown() {
-		Activator.getContext().ungetService(this.m_reference);
-	}
+    @Before
+    public void setUp()
+    {
+        this.m_reference = Activator.getContext().getServiceReference(ICalculatorService.class);
+        this.m_calculatorService = Activator.getContext().getService(this.m_reference);
+    }
 
-	/**
-	 * Testing square function.
-	 */
-	@Test
-	@Category(ISquareBasedTests.class)
-	public void testSquare() {
-		assertThat(this.m_calculatorService.square(2.5), equalTo(2.5 * 2.5));
-	}
+    @After
+    public void tearDown()
+    {
+        Activator.getContext().ungetService(this.m_reference);
+    }
 
-	/**
-	 * Testing square root function.
-	 */
-	@Test
-	@Category(ISquareRootBasedTests.class)
-	public void testSquareRoot() {
-		assertThat(this.m_calculatorService.sqrt(1.234), equalTo(Math.sqrt(1.234)));
-	}
+    /**
+     * Testing square function.
+     */
+    @Test
+    @Category(ISquareBasedTests.class)
+    public void testSquare()
+    {
+        assertThat(this.m_calculatorService.square(2.5), equalTo(2.5 * 2.5));
+    }
+
+    /**
+     * Testing square root function.
+     */
+    @Test
+    @Category(ISquareRootBasedTests.class)
+    public void testSquareRoot()
+    {
+        assertThat(this.m_calculatorService.sqrt(1.234), equalTo(Math.sqrt(1.234)));
+    }
 }

@@ -26,3 +26,9 @@ You also can use Docker on Windows for testing the Build under Linux
 ```
 docker run --rm -v %CD%:/workspace -it adoptopenjdk/openjdk11-openj9 /workspace/build.sh
 ```
+
+## Links
+
+ - https://www.vogella.com/tutorials/EclipseRCP/article.html
+ - https://www.vogella.com/tutorials/EclipseTycho/article.html
+ - https://hub.docker.com/r/adoptopenjdk/openjdk11-openj9
