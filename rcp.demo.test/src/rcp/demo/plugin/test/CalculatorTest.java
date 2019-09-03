@@ -40,21 +40,24 @@ import rcp.demo.plugin.categories.ISquareBasedTests;
 import rcp.demo.plugin.categories.ISquareRootBasedTests;
 
 /**
- * Testing of the Caluclator service.
+ * Testing of the Calculator service.
  */
+@SuppressWarnings("checkstyle:magicnumber")
 public class CalculatorTest {
-	private ServiceReference<ICalculatorService> reference;
-	private ICalculatorService calculatorService;
+    /** Service reference as interface to get the concrete shared service. */
+	private ServiceReference<ICalculatorService> m_reference;
+	/** Service instance. */
+	private ICalculatorService m_calculatorService;
 
 	@Before
 	public void setUp() {
-		this.reference = Activator.getContext().getServiceReference(ICalculatorService.class);
-		this.calculatorService = Activator.getContext().getService(this.reference);
+		this.m_reference = Activator.getContext().getServiceReference(ICalculatorService.class);
+		this.m_calculatorService = Activator.getContext().getService(this.m_reference);
 	}
 
 	@After
 	public void tearDown() {
-		Activator.getContext().ungetService(this.reference);
+		Activator.getContext().ungetService(this.m_reference);
 	}
 
 	/**
@@ -63,7 +66,7 @@ public class CalculatorTest {
 	@Test
 	@Category(ISquareBasedTests.class)
 	public void testSquare() {
-		assertThat(this.calculatorService.square(2.5), equalTo(2.5 * 2.5));
+		assertThat(this.m_calculatorService.square(2.5), equalTo(2.5 * 2.5));
 	}
 
 	/**
@@ -72,6 +75,6 @@ public class CalculatorTest {
 	@Test
 	@Category(ISquareRootBasedTests.class)
 	public void testSquareRoot() {
-		assertThat(this.calculatorService.sqrt(1.234), equalTo(Math.sqrt(1.234)));
+		assertThat(this.m_calculatorService.sqrt(1.234), equalTo(Math.sqrt(1.234)));
 	}
 }
