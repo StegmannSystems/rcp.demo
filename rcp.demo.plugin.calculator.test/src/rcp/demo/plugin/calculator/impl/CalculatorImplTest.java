@@ -37,17 +37,21 @@ import rcp.demo.plugin.categories.ISquareRootBasedTests;
 /**
  * Testing calculator service implementation directly.
  */
-public class CalculatorImplTest {
+@SuppressWarnings("checkstyle:magicnumber")
+public class CalculatorImplTest
+{
 	@Category(ISquareRootBasedTests.class)
 	@Test
-	public void testSquareRoot() {
+	public void testSquareRoot()
+	{
 		final var calculatorService = new CalculatorServiceImpl();
 		assertThat(calculatorService.sqrt(2.0), equalTo(Math.sqrt(2.0)));
 	}
 
 	@Category(ISquareBasedTests.class)
 	@Test
-	public void testSquare() {
+	public void testSquare()
+	{
 		final var calculatorService = new CalculatorServiceImpl();
 		assertThat(calculatorService.square(2.0), equalTo(4.0));
 		assertThat(calculatorService.square(2.5), equalTo(6.25));
