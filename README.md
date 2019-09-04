@@ -10,7 +10,10 @@ A RCP Demo Project as example as well as for communication of issues like Java V
 Running on Windows and Linux environment (at least):
 
 ```
+# build without tests and generating the products
 ./mvnw -B -f rcp.demo.build -PDefault
+# tests without product generation
+./mvnw -B -f rcp.demo.build/pom.tests.core.xml -PTest
 ```
 
 The rcp.demo.product/target folder will contain then all three distributions:

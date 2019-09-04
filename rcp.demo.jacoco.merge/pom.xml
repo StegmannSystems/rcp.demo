@@ -1,0 +1,61 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.stegmannsystems.rcp</groupId>
+	<artifactId>rcp.demo.jacoco.merge</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>com.stegmannsystems.rcp</groupId>
+		<artifactId>rcp.demo.build</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../rcp.demo.build</relativePath>
+	</parent>
+
+	<properties>
+		<jacoco.merged.file>${project.build.directory}/jacoco.exec</jacoco.merged.file>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>Merge</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>jacoco:merge</defaultGoal>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.maven.plugin.version}</version>
+
+				<configuration>
+					<destFile>${jacoco.merged.file}</destFile>
+						<fileSets>
+							<fileSet implementation="org.apache.maven.shared.model.fileset.FileSet">
+								<directory>${project.basedir}/..</directory>
+									<includes>
+										<include>**/jacoco.exec</include>
+									</includes>
+								</fileSet>
+						</fileSets>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>merge</id>
+						<goals>
+							<goal>merge</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

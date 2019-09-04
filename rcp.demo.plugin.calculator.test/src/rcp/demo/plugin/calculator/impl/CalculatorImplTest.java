@@ -25,6 +25,7 @@
  * maintenance of any nuclear facility.
  */
 package rcp.demo.plugin.calculator.impl;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -40,20 +41,26 @@ import rcp.demo.plugin.categories.ISquareRootBasedTests;
 @SuppressWarnings("checkstyle:magicnumber")
 public class CalculatorImplTest
 {
-	@Category(ISquareRootBasedTests.class)
-	@Test
-	public void testSquareRoot()
-	{
-		final var calculatorService = new CalculatorServiceImpl();
-		assertThat(calculatorService.sqrt(2.0), equalTo(Math.sqrt(2.0)));
-	}
+    /**
+     * Testing calculator service for square root function.
+     */
+    @Category(ISquareRootBasedTests.class)
+    @Test
+    public void testSquareRoot()
+    {
+        final var calculatorService = new CalculatorServiceImpl();
+        assertThat(calculatorService.sqrt(2.0), equalTo(Math.sqrt(2.0)));
+    }
 
-	@Category(ISquareBasedTests.class)
-	@Test
-	public void testSquare()
-	{
-		final var calculatorService = new CalculatorServiceImpl();
-		assertThat(calculatorService.square(2.0), equalTo(4.0));
-		assertThat(calculatorService.square(2.5), equalTo(6.25));
-	}
+    /**
+     * Testing calculator service for square function.
+     */
+    @Category(ISquareBasedTests.class)
+    @Test
+    public void testSquare()
+    {
+        final var calculatorService = new CalculatorServiceImpl();
+        assertThat(calculatorService.square(2.0), equalTo(4.0));
+        assertThat(calculatorService.square(2.5), equalTo(6.25));
+    }
 }

@@ -153,9 +153,8 @@
 				<version>${jacoco.maven.plugin.version}</version>
 
 				<configuration>
-					<destFile>${sonar.jacoco.reportPath}</destFile>
+					<destFile>${jacoco.outputDir}/${jacoco.out.file}</destFile>
 					<propertyName>jacoco.agent.arg</propertyName>
-					<append>true</append>
 				</configuration>
 
 				<executions>
