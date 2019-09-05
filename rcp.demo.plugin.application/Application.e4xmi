@@ -8,7 +8,7 @@
         <children xsi:type="basic:Part" xmi:id="_MRrlkLzwEemH4txhAn1Sew" elementId="rcp.demo.plugin.application.part.calculator" contributionURI="bundleclass://rcp.demo.plugin.application/rcp.demo.plugin.application.CalculatorPart" label="Calculator">
           <persistedState key="TEST_COMP_NAME" value="CALCULATOR"/>
         </children>
-        <children xsi:type="basic:Part" xmi:id="_ETqKIMfoEemjkrhqWk2YsA" elementId="rcp.demo.plugin.application.part.openjfxwebview" contributionURI="bundleclass://rcp.demo.plugin.application/rcp.demo.plugin.application.OpenJfxPart" label="OpenJfx WebView"/>
+        <children xsi:type="basic:Part" xmi:id="_ETqKIMfoEemjkrhqWk2YsA" elementId="rcp.demo.plugin.application.part.openjfxwebview" contributionURI="bundleclass://rcp.demo.plugin.application/rcp.demo.plugin.application.OpenFXPart" label="OpenJfx WebView"/>
       </children>
     </children>
   </children>
