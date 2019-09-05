@@ -6,8 +6,12 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<java.version>11</java.version>
+		<openjfx.version>11</openjfx.version>
+
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<build.root></build.root>
 		<product.id>rcp.demo.plugin.application.id</product.id>
@@ -25,7 +29,7 @@
 		<sonar.language>java</sonar.language>
 		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
 		<sonar.verbose>false</sonar.verbose>
-		<sonar.java.source>11</sonar.java.source>
+		<sonar.java.source>${java.version}</sonar.java.source>
 		<sonar.scm.provider>git</sonar.scm.provider>
 		<sonar.scm.url>scm:git:https://github.com/StegmannSystems/rcp.demo.git</sonar.scm.url>
 		<sonar.jacoco.reportPaths></sonar.jacoco.reportPaths>
@@ -95,6 +99,45 @@
 					</compilerArgs>
 					<showDeprecation>true</showDeprecation>
 					<showWarnings>true</showWarnings>
+					<extraClasspathElements>
+						<extraClasspathElement>
+							<groupId>org.openjfx</groupId>
+							<artifactId>javafx-base</artifactId>
+							<version>${openjfx.version}</version>
+						</extraClasspathElement>
+						<extraClasspathElement>
+							<groupId>org.openjfx</groupId>
+							<artifactId>javafx-graphics</artifactId>
+							<version>${openjfx.version}</version>
+						</extraClasspathElement>
+						<extraClasspathElement>
+							<groupId>org.openjfx</groupId>
+							<artifactId>javafx-controls</artifactId>
+							<version>${openjfx.version}</version>
+						</extraClasspathElement>
+						<extraClasspathElement>
+							<groupId>org.openjfx</groupId>
+							<artifactId>javafx-fxml</artifactId>
+							<version>${openjfx.version}</version>
+						</extraClasspathElement>
+						<extraClasspathElement>
+							<groupId>org.openjfx</groupId>
+							<artifactId>javafx-media</artifactId>
+							<version>${openjfx.version}</version>
+						</extraClasspathElement>
+						<extraClasspathElement>
+							<groupId>org.openjfx</groupId>
+							<artifactId>javafx-web</artifactId>
+							<version>${openjfx.version}</version>
+						</extraClasspathElement>
+						<extraClasspathElement>
+                            <groupId>org.openjfx</groupId>
+                            <artifactId>javafx-swt</artifactId>
+							<version>${openjfx.version}</version>
+                            <systemPath>${env.JAVA_HOME}/lib/javafx-swt.jar</systemPath>
+                            <scope>system</scope>
+                        </extraClasspathElement>
+					</extraClasspathElements>
 				</configuration>
 			</plugin>
 
@@ -115,16 +158,6 @@
 						<environment>
 							<os>win32</os>
 							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
 							<arch>x86_64</arch>
 						</environment>
 					</environments>

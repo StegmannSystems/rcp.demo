@@ -23,53 +23,47 @@
  */
 package rcp.demo.plugin.application;
 
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
+import javax.annotation.PostConstruct;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Composite;
+
+import javafx.embed.swt.FXCanvas;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebView;
 
 /**
- * Activator for the application bundle.
+ * Part using Java FX.
  */
-public class Activator implements BundleActivator
+public class OpenFXPart
 {
-    /** Current bundle context. */
-    private static BundleContext context;
-
     /**
-     * Provide current bundle context.
-     *
-     * @return current bundle context.
+     * Creating a simple FX browser.
+     * 
+     * @param parent owner of the FX browser.
      */
-    static synchronized BundleContext getContext()
+    @PostConstruct
+    public void createControls(final Composite parent)
     {
-        return context;
-    }
-
-    @Override
-    public void start(BundleContext bundleContext) throws Exception
-    {
-        if (Activator.context == null)
+        final FXCanvas fxCanvas = new FXCanvas(parent, SWT.NONE)
         {
-            setContext(bundleContext);
-        }
-    }
 
-    @Override
-    public void stop(BundleContext bundleContext) throws Exception
-    {
-        if (Activator.context != null)
-        {
-            setContext(null);
-        }
-    }
+            @Override
+            public Point computeSize(final int wHint, final int hHint, final boolean changed)
+            {
+                getScene().getWindow().sizeToScene();
+                final int width = (int) getScene().getWidth();
+                final int height = (int) getScene().getHeight();
+                return new Point(width, height);
+            }
+        };
 
-    /**
-     * Adjusts the bundle context.
-     *
-     * @param bundleContext - Der Bundle-Context
-     */
-    private static synchronized void setContext(final BundleContext bundleContext)
-    {
-        context = bundleContext;
+        final WebView webview = new WebView();
+        webview.getEngine().load("http://www.google.de");
+        final VBox vBox = new VBox(webview);
+        final Scene scene = new Scene(vBox, 300, 300);
+        fxCanvas.setScene(scene);
     }
-
 }

@@ -17,7 +17,15 @@ Require-Bundle: javax.inject;bundle-version="0.0.0",
  org.eclipse.e4.core.contexts;bundle-version="0.0.0",
  org.eclipse.core.runtime;bundle-version="0.0.0",
  rcp.demo.plugin.calculator;bundle-version="1.0.0",
- rcp.demo.plugin.commons
+ rcp.demo.plugin.commons,
+ openjfx.base;bundle-version="11.0.0",
+ openjfx.controls;bundle-version="11.0.0",
+ openjfx.fxml;bundle-version="11.0.0",
+ openjfx.graphics.win32_64;bundle-version="11.0.0",
+ openjfx.media.win32_64;bundle-version="11.0.0",
+ openjfx.swing;bundle-version="11.0.0",
+ openjfx.swt;bundle-version="11.0.0",
+ openjfx.web.win32_64;bundle-version="11.0.0"
 Automatic-Module-Name: rcp.demo.plugin.application
 Import-Package: javax.annotation;version="0.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-9,
