@@ -17,6 +17,7 @@
         <module>../rcp.demo.plugin.commons</module>
         <module>../rcp.demo.plugin.calculator</module>
         <module>../rcp.demo.plugin.application</module>
+        <module>../rcp.demo.plugin.ui.help</module>
 
         <module>../rcp.demo.plugin.test.commons</module>
         <module>../rcp.demo.test.feature</module>
