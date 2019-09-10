@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_xYcFgNLYEemvPfxt6OPEyw">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_zGEsANLYEemvPfxt6OPEyw" featurename="children" parentElementId="rcp.demo.plugin.application.MainMenu" positionInList="after:rcp.demo.plugin.application.menu.help.dummy">
+    <elements xsi:type="menu:Menu" xmi:id="_qF3YENOOEemhpesN1OgG2w" elementId="rcp.demo.plugin.ui.menu.help" label="Help" mnemonics="h">
+      <children xsi:type="menu:DirectMenuItem" xmi:id="_VLSmINOPEemhpesN1OgG2w" elementId="rcp.demo.plugin.ui.menu.help.about" label="About" mnemonics="a" contributionURI="bundleclass://rcp.demo.plugin.ui.help/rcp.demo.plugin.application.AboutHandler"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

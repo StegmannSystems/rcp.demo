@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_c3AF0MjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.application" bindingContexts="_c3AF2cjYEeSyMNYR5xypkQ">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_c3AF0cjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.window.main" label="Simple RCP Demo Application" width="500" height="400">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_c3AF0cjYEeSyMNYR5xypkQ" elementId="org.eclipse.e4.window.main" selectedElement="_yCDwIG2UEemoUJDwBiuDFw" label="Simple RCP Demo Application" bindingContexts="_c3AF2cjYEeSyMNYR5xypkQ" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_yCDwIG2UEemoUJDwBiuDFw" elementId="rcp.demo.plugin.application.partsashcontainer.main" selectedElement="_1y49cG2UEemoUJDwBiuDFw" horizontal="true">
       <children xsi:type="basic:PartStack" xmi:id="_1y49cG2UEemoUJDwBiuDFw" elementId="rcp.demo.plugin.application.partstack.main" selectedElement="_MRrlkLzwEemH4txhAn1Sew">
         <children xsi:type="basic:Part" xmi:id="_dHKqkG2UEemoUJDwBiuDFw" elementId="rcp.demo.plugin.application.part.first" contributionURI="bundleclass://rcp.demo.plugin.application/rcp.demo.plugin.application.FirstPart" label="First"/>
@@ -8,9 +8,9 @@
         <children xsi:type="basic:Part" xmi:id="_MRrlkLzwEemH4txhAn1Sew" elementId="rcp.demo.plugin.application.part.calculator" contributionURI="bundleclass://rcp.demo.plugin.application/rcp.demo.plugin.application.CalculatorPart" label="Calculator">
           <persistedState key="TEST_COMP_NAME" value="CALCULATOR"/>
         </children>
-        <children xsi:type="basic:Part" xmi:id="_ETqKIMfoEemjkrhqWk2YsA" elementId="rcp.demo.plugin.application.part.openjfxwebview" contributionURI="bundleclass://rcp.demo.plugin.application/rcp.demo.plugin.application.OpenJfxPart" label="OpenJfx WebView"/>
       </children>
     </children>
+    <mainMenu xmi:id="__daksNLvEemvPfxt6OPEyw" elementId="rcp.demo.plugin.application.MainMenu"/>
   </children>
   <rootContext xmi:id="_c3AF2cjYEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_c3AF2sjYEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
